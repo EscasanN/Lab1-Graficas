@@ -41,6 +41,20 @@ fn main() {
         Vec3::new(193.0, 383.0, 0.0)
     ];
 
+    let poly3 = vec![
+        (321, 335),
+        (288, 286),
+        (339, 251),
+        (374, 302)
+    ];
+
+    let poly3_f = vec![
+        Vec3::new(321.0, 335.0, 0.0),
+        Vec3::new(288.0, 286.0, 0.0),
+        Vec3::new(339.0, 251.0, 0.0),
+        Vec3::new(374.0, 302.0, 0.0)
+    ];
+    
     framebuffer.set_current_color(0xEAE52D);
 
     framebuffer.filled_polygon(&poly2);
@@ -48,6 +62,11 @@ fn main() {
     framebuffer.set_current_color(0xFFFFFF);
 
     framebuffer.polygon(&poly1);
+
+    framebuffer.set_current_color(0x1E11D6);
+    framebuffer.filled_polygon(&poly3_f);
+    framebuffer.set_current_color(0xFFFFFF);
+    framebuffer.polygon(&poly3);
 
     let _ = framebuffer.render_buffer("output.bmp");
 
